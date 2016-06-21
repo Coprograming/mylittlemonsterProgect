@@ -1,50 +1,43 @@
 //
-//  MonsterImg.swift
+//  EnemyImg.swift
 //  mylittlemonster
 //
-//  Created by Kasey Schlaudt on 6/19/16.
+//  Created by Kasey Schlaudt on 6/21/16.
 //  Copyright © 2016 coprograming.com. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class MonsterImg: UIImageView {
-    override init(frame: CGRect){
-        super.init(frame: frame)
-    }
+class EnemyImg: MonsterImg {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    override func playIdleAnimation(){
     
-    func playIdleAnimation(){
-        
-        self.image = UIImage(named: "idle1.png")
-        
+        self.image = UIImage(named: "idle1Enemy.png")
+    
         self.animationImages = nil
-        
+    
         var imgArray = [UIImage]()
         for x in 1...4{
-            let img = UIImage(named: "idle\(x).png")
+            let img = UIImage(named: "idle\(x)Enemy.png")
             imgArray.append(img!)
         }
-        
+    
         self.animationImages = imgArray
         self.animationDuration = 0.8
         self.animationRepeatCount = 0
         self.startAnimating()
     }
     
-    func playDeathAnimation() {
+    override func playDeathAnimation() {
         
-        self.image = UIImage(named: "dead5.png")
+        self.image = UIImage(named: "hide6.png")
         
         self.animationImages = nil
         
         var imgArray = [UIImage]()
-        for x in 1...5{
-            let img = UIImage(named: "dead\(x).png")
+        for x in 1...6{
+            let img = UIImage(named: "hide\(x).png")
             imgArray.append(img!)
         }
         
@@ -53,5 +46,6 @@ class MonsterImg: UIImageView {
         self.animationRepeatCount = 1
         self.startAnimating()
     }
-    
+
 }
+

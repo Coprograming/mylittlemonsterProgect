@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="width" constant="240" id="KYs-FA-Zgi"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="livespanel" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-tS-39Z">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="livespanel" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-tS-39Z">
                                 <rect key="frame" x="180" y="34" width="240" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="OT0-Lb-pV2"/>
@@ -88,7 +88,7 @@
                                     <constraint firstAttribute="height" constant="321" id="pwc-u6-5fC"/>
                                 </constraints>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idle1Enemy" translatesAutoresizingMaskIntoConstraints="NO" id="3UN-9S-Saz" customClass="MonsterImg" customModule="mylittlemonster" customModuleProvider="target">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idle1Enemy" translatesAutoresizingMaskIntoConstraints="NO" id="3UN-9S-Saz" customClass="EnemyImg" customModule="mylittlemonster" customModuleProvider="target">
                                 <rect key="frame" x="121" y="324" width="359" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="359" id="SBo-d7-Ecu"/>
@@ -281,6 +281,7 @@
                         <outlet property="ground3" destination="AjR-q8-Bl5" id="MdW-PU-vL7"/>
                         <outlet property="ground4" destination="pTo-Xc-X6V" id="2qE-Oi-kaR"/>
                         <outlet property="heartImg" destination="Opy-k5-x8F" id="OHy-QO-NFT"/>
+                        <outlet property="livesPanel" destination="Yld-tS-39Z" id="X76-Lz-3im"/>
                         <outlet property="minerSelectCharacter" destination="326-2c-yeq" id="gx0-tk-FlW"/>
                         <outlet property="monsterImg" destination="cY0-tH-VjM" id="AbR-Dg-9CD"/>
                         <outlet property="penalty1Img" destination="dlr-7F-BHl" id="P6D-JC-cFs"/>

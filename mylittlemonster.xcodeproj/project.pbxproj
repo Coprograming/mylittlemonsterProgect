@@ -13,6 +13,7 @@
 		4A1143CF1D174A5E00B61965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A1143CE1D174A5E00B61965 /* Assets.xcassets */; };
 		4A1143D21D174A5E00B61965 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1143D01D174A5E00B61965 /* LaunchScreen.storyboard */; };
 		4A1143DA1D17624C00B61965 /* DragImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1143D91D17624C00B61965 /* DragImg.swift */; };
+		4A7BE4AB1D1A062800B9D0F4 /* EnemyImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7BE4AA1D1A062800B9D0F4 /* EnemyImg.swift */; };
 		4AAA88831D18ED0200EA5EA6 /* bite.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4AAA887F1D18ED0200EA5EA6 /* bite.wav */; };
 		4AAA88841D18ED0200EA5EA6 /* death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4AAA88801D18ED0200EA5EA6 /* death.wav */; };
 		4AAA88851D18ED0200EA5EA6 /* heart.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4AAA88811D18ED0200EA5EA6 /* heart.wav */; };
@@ -30,6 +31,7 @@
 		4A1143D11D174A5E00B61965 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A1143D31D174A5E00B61965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A1143D91D17624C00B61965 /* DragImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragImg.swift; sourceTree = "<group>"; };
+		4A7BE4AA1D1A062800B9D0F4 /* EnemyImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyImg.swift; sourceTree = "<group>"; };
 		4AAA887F1D18ED0200EA5EA6 /* bite.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bite.wav; sourceTree = "<group>"; };
 		4AAA88801D18ED0200EA5EA6 /* death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = death.wav; sourceTree = "<group>"; };
 		4AAA88811D18ED0200EA5EA6 /* heart.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = heart.wav; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				4A1143D31D174A5E00B61965 /* Info.plist */,
 				4A1143D91D17624C00B61965 /* DragImg.swift */,
 				4AD6B36F1D17901200744E05 /* MonsterImg.swift */,
+				4A7BE4AA1D1A062800B9D0F4 /* EnemyImg.swift */,
 				4AAA88871D18EECF00EA5EA6 /* cave-music.mp3 */,
 				4AAA887F1D18ED0200EA5EA6 /* bite.wav */,
 				4AAA88801D18ED0200EA5EA6 /* death.wav */,
@@ -165,6 +168,7 @@
 				4AD6B3701D17901200744E05 /* MonsterImg.swift in Sources */,
 				4A1143DA1D17624C00B61965 /* DragImg.swift in Sources */,
 				4A1143CA1D174A5E00B61965 /* ViewController.swift in Sources */,
+				4A7BE4AB1D1A062800B9D0F4 /* EnemyImg.swift in Sources */,
 				4A1143C81D174A5E00B61965 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

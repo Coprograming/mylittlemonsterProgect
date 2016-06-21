@@ -14,8 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var monsterImg: MonsterImg!
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
-    @IBOutlet weak var MinerImg: MonsterImg!
+    @IBOutlet weak var MinerImg: EnemyImg!
     @IBOutlet weak var fruitImg: DragImg!
+    @IBOutlet weak var livesPanel: UIImageView!
     
     @IBOutlet weak var penalty1Img: UIImageView!
     @IBOutlet weak var penalty2Img: UIImageView!
@@ -74,6 +75,8 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.itemDroppedOnCharacter(_:)), name: "onTargetDropped", object: nil)
         
         monsterImg.playIdleAnimation()
+        MinerImg.playIdleAnimation()
+        
         
         do {
             try musicPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cave-music", ofType: "mp3")!))
@@ -213,17 +216,20 @@ class ViewController: UIViewController {
         
         startTimer()
         monsterImg.playIdleAnimation()
+        MinerImg.playIdleAnimation()
         monsterHappy = false
     }
     
     func gameOver() {
         timer.invalidate()
         monsterImg.playDeathAnimation()
+        MinerImg.playDeathAnimation()
         sfxDeath.play()
         restartBtn.hidden = false
         
         heartImg.hidden = true
         foodImg.hidden = true
+        fruitImg.hidden = true
     }
     
     func gameSelectingPlayer() {
@@ -237,7 +243,7 @@ class ViewController: UIViewController {
         penalty3Img.hidden = true
         penalty2Img.hidden = true
         penalty1Img.hidden = true
-        
+        livesPanel.hidden = true
         
     }
     
@@ -264,6 +270,7 @@ class ViewController: UIViewController {
         penalty1Img.hidden = false
         penalty2Img.hidden = false
         penalty3Img.hidden = false
+        livesPanel.hidden = false
         
     }
     
@@ -294,6 +301,7 @@ class ViewController: UIViewController {
         penalty1Img.hidden = false
         penalty2Img.hidden = false
         penalty3Img.hidden = false
+        livesPanel.hidden = false
     }
     
     
