@@ -14,12 +14,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var monsterImg: MonsterImg!
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
+    @IBOutlet weak var MinerImg: MonsterImg!
+    @IBOutlet weak var fruitImg: DragImg!
     
     @IBOutlet weak var penalty1Img: UIImageView!
     @IBOutlet weak var penalty2Img: UIImageView!
     @IBOutlet weak var penalty3Img: UIImageView!
     
     @IBOutlet weak var restartBtn: UIButton!
+    
+    @IBOutlet weak var rockSelectCharacter: UIButton!
+    @IBOutlet weak var minerSelectCharacter: UIButton!
+    
+    @IBOutlet weak var ground1: UIImageView!
+    @IBOutlet weak var ground2: UIImageView!
+    @IBOutlet weak var ground3: UIImageView!
+    @IBOutlet weak var ground4: UIImageView!
+    
+    @IBOutlet weak var rockSenery: UIImageView!
+    @IBOutlet weak var rockSenery2: UIImageView!
+    @IBOutlet weak var rockSenery4: UIImageView!
+    
+    @IBOutlet weak var baseGrass1: UIImageView!
+    @IBOutlet weak var baseGrass2: UIImageView!
+    @IBOutlet weak var baseGrass3: UIImageView!
+    @IBOutlet weak var baseGrass4: UIImageView!
+    
+    @IBOutlet weak var ground: UIImageView!
+    
     
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE: CGFloat = 1.0
@@ -39,8 +61,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gameSelectingPlayer()
+        
         foodImg.dropTarget = monsterImg
         heartImg.dropTarget = monsterImg
+        fruitImg.dropTarget = monsterImg
         
         penalty1Img.alpha = DIM_ALPHA
         penalty2Img.alpha = DIM_ALPHA
@@ -75,8 +100,6 @@ class ViewController: UIViewController {
         
         monsterHappy = false
         
-        startTimer()
-        
         restartBtn.hidden = true
         
     }
@@ -89,6 +112,8 @@ class ViewController: UIViewController {
         foodImg.userInteractionEnabled = false
         heartImg.alpha = DIM_ALPHA
         heartImg.userInteractionEnabled = false
+        fruitImg.alpha = DIM_ALPHA
+        fruitImg.userInteractionEnabled = false
         
         if currentItem == 0 {
             sfxHeart.play()
@@ -133,7 +158,7 @@ class ViewController: UIViewController {
  
         }
         
-        let rand = arc4random_uniform(2)
+        let rand = arc4random_uniform(3)
         
         if rand == 0 {
             foodImg.alpha = DIM_ALPHA
@@ -141,12 +166,28 @@ class ViewController: UIViewController {
             
             heartImg.alpha = OPAQUE
             heartImg.userInteractionEnabled = true
-        } else {
+            
+            fruitImg.alpha = DIM_ALPHA
+            fruitImg.userInteractionEnabled = false
+        } else if rand == 1 {
             heartImg.alpha = DIM_ALPHA
             heartImg.userInteractionEnabled = false
             
             foodImg.alpha = OPAQUE
             foodImg.userInteractionEnabled = true
+            
+            fruitImg.alpha = DIM_ALPHA
+            fruitImg.userInteractionEnabled = false
+        } else {
+            heartImg.alpha = DIM_ALPHA
+            heartImg.userInteractionEnabled = false
+            
+            foodImg.alpha = DIM_ALPHA
+            foodImg.userInteractionEnabled = false
+            
+            fruitImg.alpha = OPAQUE
+            fruitImg.userInteractionEnabled = true
+
         }
         
         currentItem = rand
@@ -184,6 +225,78 @@ class ViewController: UIViewController {
         heartImg.hidden = true
         foodImg.hidden = true
     }
+    
+    func gameSelectingPlayer() {
+        
+        rockSelectCharacter.hidden = false
+        minerSelectCharacter.hidden = false
+        
+        fruitImg.hidden = true
+        heartImg.hidden = true
+        foodImg.hidden = true
+        penalty3Img.hidden = true
+        penalty2Img.hidden = true
+        penalty1Img.hidden = true
+        
+        
+    }
+    
+    @IBAction func minerSelected(sender: AnyObject) {
+        startTimer()
+        rockSelectCharacter.hidden = true
+        minerSelectCharacter.hidden = true
+        ground1.hidden = true
+        ground2.hidden = true
+        ground3.hidden = true
+        ground4.hidden = true
+        
+        baseGrass1.hidden = false
+        baseGrass2.hidden = false
+        baseGrass3.hidden = false
+        baseGrass4.hidden = false
+        
+        ground.hidden = true
+        
+        MinerImg.hidden = false
+        heartImg.hidden = false
+        foodImg.hidden = false
+        fruitImg.hidden = false
+        penalty1Img.hidden = false
+        penalty2Img.hidden = false
+        penalty3Img.hidden = false
+        
+    }
+    
+    @IBAction func rockSelected(sender: AnyObject) {
+        startTimer()
+        rockSelectCharacter.hidden = true
+        minerSelectCharacter.hidden = true
+        ground1.hidden = true
+        ground2.hidden = true
+        ground3.hidden = true
+        ground4.hidden = true
+        
+        rockSenery.hidden = false
+        rockSenery2.hidden = false
+        rockSenery4.hidden = false
+        
+        baseGrass1.hidden = true
+        baseGrass2.hidden = true
+        baseGrass3.hidden = true
+        baseGrass4.hidden = true
+        
+        ground.hidden = false
+
+        monsterImg.hidden = false
+        heartImg.hidden = false
+        foodImg.hidden = false
+        fruitImg.hidden = false
+        penalty1Img.hidden = false
+        penalty2Img.hidden = false
+        penalty3Img.hidden = false
+    }
+    
+    
     
     
     
