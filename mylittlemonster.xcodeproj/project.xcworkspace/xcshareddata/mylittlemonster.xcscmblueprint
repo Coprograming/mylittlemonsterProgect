@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "491D593C1B2DE7ECD241BE0EEB46B55DE46D38E1" : 0,
+    "D0BC2575F7B028EDCD28F7EB99179DDD15CCDDA6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "222DFE69-CBC9-4B22-A607-690CDDF5FDFB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "491D593C1B2DE7ECD241BE0EEB46B55DE46D38E1" : "..",
+    "D0BC2575F7B028EDCD28F7EB99179DDD15CCDDA6" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : ".",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : ".",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Coprograming\/Calculator.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "491D593C1B2DE7ECD241BE0EEB46B55DE46D38E1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Coprograming\/mylittlemonsterProgect.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D0BC2575F7B028EDCD28F7EB99179DDD15CCDDA6"
+    }
+  ]
+}

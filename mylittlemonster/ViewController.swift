@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var penalty2Img: UIImageView!
     @IBOutlet weak var penalty3Img: UIImageView!
     
+    @IBOutlet weak var restartBtn: UIButton!
+    
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE: CGFloat = 1.0
     let MAX_PENALTIES = 3
@@ -26,6 +29,12 @@ class ViewController: UIViewController {
     var timer: NSTimer!
     var monsterHappy = true
     var currentItem: UInt32 = 0
+    
+    var musicPlayer: AVAudioPlayer!
+    var sfxBite: AVAudioPlayer!
+    var sfxHeart: AVAudioPlayer!
+    var sfxDeath: AVAudioPlayer!
+    var sfxSkull: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +48,36 @@ class ViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.itemDroppedOnCharacter(_:)), name: "onTargetDropped", object: nil)
         
+        monsterImg.playIdleAnimation()
+        
+        do {
+            try musicPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cave-music", ofType: "mp3")!))
+            
+            try sfxBite = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("bite", ofType: "wav")!))
+            
+            try sfxHeart = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("heart", ofType: "wav")!))
+            
+            try sfxDeath = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("death", ofType: "wav")!))
+            
+            try sfxSkull = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("skull", ofType: "wav")!))
+            
+            musicPlayer.prepareToPlay()
+            musicPlayer.play()
+            
+            sfxBite.prepareToPlay()
+            sfxSkull.prepareToPlay()
+            sfxDeath.prepareToPlay()
+            sfxHeart.prepareToPlay()
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        monsterHappy = false
+        
         startTimer()
+        
+        restartBtn.hidden = true
         
     }
     
@@ -51,6 +89,12 @@ class ViewController: UIViewController {
         foodImg.userInteractionEnabled = false
         heartImg.alpha = DIM_ALPHA
         heartImg.userInteractionEnabled = false
+        
+        if currentItem == 0 {
+            sfxHeart.play()
+        } else {
+            sfxBite.play()
+        }
     }
     
     func startTimer() {
@@ -66,6 +110,8 @@ class ViewController: UIViewController {
         
         if !monsterHappy {
             penalties += 1
+            
+            sfxSkull.play()
             
             if penalties == 1 {
                 penalty1Img.alpha = OPAQUE
@@ -107,10 +153,36 @@ class ViewController: UIViewController {
         monsterHappy = false
         
     }
+    @IBAction func restartPressed(sender: AnyObject) {
+        gigaDied()
+        
+    }
+    
+    func gigaDied() {
+        
+        penalties = 0
+        
+        penalty1Img.alpha = DIM_ALPHA
+        penalty2Img.alpha = DIM_ALPHA
+        penalty3Img.alpha = DIM_ALPHA
+        
+        heartImg.hidden = false
+        foodImg.hidden = false
+        restartBtn.hidden = true
+        
+        startTimer()
+        monsterImg.playIdleAnimation()
+        monsterHappy = false
+    }
     
     func gameOver() {
         timer.invalidate()
         monsterImg.playDeathAnimation()
+        sfxDeath.play()
+        restartBtn.hidden = false
+        
+        heartImg.hidden = true
+        foodImg.hidden = true
     }
     
     
